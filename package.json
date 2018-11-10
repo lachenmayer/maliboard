@@ -18,6 +18,7 @@
     "fastify-bankai": "https://github.com/lachenmayer/fastify-bankai",
     "fastify-static": "^0.14.0",
     "fastify-websocket": "^0.3.0",
+    "hyperscript": "^2.0.2",
     "nanobus": "^4.3.5",
     "note-parser": "^2.0.1",
     "pino-pretty": "^2.2.3",

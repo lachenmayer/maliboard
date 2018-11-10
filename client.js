@@ -1,6 +1,8 @@
 const Keyboard = require('audiokeys')
 const blobToBuffer = require('blob-to-buffer')
+const choo = require('choo')
 const instruments = require('./instruments')
+const h = require('hyperscript')
 const messages = require('./messages')
 const nanobus = require('nanobus')
 
@@ -57,3 +59,35 @@ ws.addEventListener('message', message => {
     events.emit('receive', decoded)
   })
 })
+
+//
+// UI
+//
+
+const app = choo()
+
+const ks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+app.route('/', (state, emit) => {
+  return h(
+    'body',
+    {
+      style: 'background-color: pink',
+    },
+    h(
+      'div.keys',
+      ks.map(i =>
+        h(
+          'div.key',
+          {
+            style:
+              'width: calc(100% / 12); border: 1px solid black; height: 100px; display: inline;',
+          },
+          i
+        )
+      )
+    )
+  )
+})
+
+module.exports = app.mount('body')
