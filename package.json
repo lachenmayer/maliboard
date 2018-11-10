@@ -4,9 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-protos": "protocol-buffers schema.proto -o messages.js",
+    "start": "node index.js | pino-pretty"
   },
   "keywords": [],
   "author": "harry lachenmayer <harrylachenmayer@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "audiokeys": "^0.1.1",
+    "blob-to-buffer": "^1.2.8",
+    "fastify": "^1.13.0",
+    "fastify-bankai": "https://github.com/lachenmayer/fastify-bankai",
+    "fastify-websocket": "^0.3.0",
+    "nanobus": "^4.3.5",
+    "pino-pretty": "^2.2.3",
+    "protocol-buffers": "^4.1.0",
+    "tone": "^0.12.80"
+  }
 }

@@ -1,0 +1,19 @@
+message NoteOn {
+  required double frequency = 1;
+}
+
+message NoteOff {
+  required double frequency = 1;
+}
+
+message Message {
+  oneof message {
+    NoteOn note_on = 1;
+    NoteOff note_off = 2;
+  }
+}
+
+message Broadcast {
+  required int64 sender = 1;
+  required Message message = 2;
+}
