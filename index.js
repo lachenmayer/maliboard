@@ -5,6 +5,10 @@ const fastify = require('fastify')({
 })
 
 fastify.register(require('fastify-websocket'), { handle })
+fastify.register(require('fastify-static'), {
+  root: __dirname + '/sounds',
+  prefix: '/sounds',
+})
 fastify.register(require('fastify-bankai'), {
   entry: './client.js',
   watch: true,

@@ -1,18 +1,10 @@
 const Keyboard = require('audiokeys')
 const blobToBuffer = require('blob-to-buffer')
+const instruments = require('./instruments')
 const messages = require('./messages')
 const nanobus = require('nanobus')
-const Tone = require('tone')
 
-//
-// SYNTH
-//
-
-const synth = new Tone.PolySynth(6, Tone.Synth, {
-  oscillator: {
-    partials: [0, 2, 3, 4, 8],
-  },
-}).toMaster()
+const instrument = instruments.mali()
 
 //
 // BUS
@@ -20,10 +12,10 @@ const synth = new Tone.PolySynth(6, Tone.Synth, {
 
 const events = nanobus()
 events.on('note_on', note => {
-  synth.triggerAttack(note.frequency)
+  instrument.triggerAttack(note.frequency)
 })
 events.on('note_off', note => {
-  synth.triggerRelease(note.frequency)
+  instrument.triggerRelease(note.frequency)
 })
 
 events.on('receive', ({ sender, message }) => {

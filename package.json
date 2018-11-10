@@ -13,10 +13,13 @@
   "dependencies": {
     "audiokeys": "^0.1.1",
     "blob-to-buffer": "^1.2.8",
+    "choo": "^6.13.1",
     "fastify": "^1.13.0",
     "fastify-bankai": "https://github.com/lachenmayer/fastify-bankai",
+    "fastify-static": "^0.14.0",
     "fastify-websocket": "^0.3.0",
     "nanobus": "^4.3.5",
+    "note-parser": "^2.0.1",
     "pino-pretty": "^2.2.3",
     "protocol-buffers": "^4.1.0",
     "tone": "^0.12.80"
